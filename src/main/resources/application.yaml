@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: restaurant
+
+  datasource:
+    url: jdbc:postgresql://localhost:5332/restaurant
+    username: tymofi1
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

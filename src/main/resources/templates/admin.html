@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+
+<a href="/">Back to menu</a>
+
+<hr>
+
+<h1>Admin panel</h1>
+
+<a href="/admin/recipes/new">
+    <button type="button">Add Recipe</button>
+</a>
+
+<hr>
+
+<div th:if="${recipes.isEmpty()}">
+    <p>There are no recipes yet.</p>
+</div>
+
+<div th:each="recipe : ${recipes}">
+
+    <h2 th:text="${recipe.name}">
+        Recipe name
+    </h2>
+
+    <p th:text="${recipe.description}">
+        Description
+    </p>
+
+    <p>
+        Price:
+        <span th:text="${recipe.price}">0</span>
+    </p>
+
+    <a th:href="@{/admin/recipes/edit/{id}(id=${recipe.id})}">
+        <button type="button">Edit</button>
+    </a>
+
+    <form th:action="@{/admin/recipes/delete/{id}(id=${recipe.id})}"
+          method="post"
+          style="display:inline;">
+
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}">
+
+        <button type="submit">
+            Delete
+        </button>
+    </form>
+
+    <hr>
+
+</div>
+
+</body>
+</html>

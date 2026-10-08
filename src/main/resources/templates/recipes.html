@@ -10,13 +10,20 @@
 <div>
 
     <span sec:authorize="isAuthenticated()">
-        Hello, <span sec:authentication="name"></span>!
+        Hello, <span sec:authorize="hasRole('ADMIN')"> ADMIN_vert1 </span> <span sec:authentication="name"></span>!
+
+        <p sec:authorize="hasRole('ADMIN')">
+            <form th:action="@{/admin}" method="get">
+                <input type="hidden">
+                <button type="submit">Admin Page</button>
+            </form>
+        </p>
 
         <hr>
 
         <a href="/favorites">look on your favorites</a>
 
-        <br>
+        <br><br>
 
         <form th:action="@{/logout}" method="post" style="dispay: inline;">
             <input type="hidden"

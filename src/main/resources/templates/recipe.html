@@ -21,6 +21,11 @@
   <span th:text="${recipe.price}">0</span>
 </p>
 
+<p>
+    Ingredients:
+    <span th:text="${recipe.ingredients}"></span>
+</p>
+
 <img th:if="${recipe.imageUrl != null}"
       th:src="${recipe.imageUrl}"
       alt="Recipe image"

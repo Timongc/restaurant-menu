@@ -1,0 +1,19 @@
+### Get all recipes
+GET http://localhost:8080/api/recipes
+
+### Create recipe
+POST http://localhost:8080/api/recipes
+Content-Type: application/json
+
+{
+  "name": "Salad",
+  "description": "Juliusx Salad",
+  "price": 265,
+  "ingredients": "small tomato, meat, and something else i forgot",
+  "imageUrl": "juliusxSalad.jpg"
+}
+
+### Get recipe
+GET http://localhost:8080/api/recipes/1
+
+###

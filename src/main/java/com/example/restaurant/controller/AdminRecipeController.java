@@ -1,5 +1,6 @@
 package com.example.restaurant.controller;
 
+import com.example.restaurant.entity.Favorite;
 import com.example.restaurant.entity.Recipe;
 import com.example.restaurant.service.RecipeService;
 import org.springframework.stereotype.Controller;

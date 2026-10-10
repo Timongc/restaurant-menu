@@ -1,0 +1,11 @@
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.recipe-card {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}

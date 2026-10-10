@@ -23,7 +23,8 @@ public class SecurityConfig {
                     "/register",
                     "/login",
                     "/recipes/**",
-                    "/api/recipes/**"
+                    "/api/recipes/**",
+                    "/css/**"
                     ).permitAll()
 
                     .requestMatchers("/admin/**").hasRole("ADMIN")

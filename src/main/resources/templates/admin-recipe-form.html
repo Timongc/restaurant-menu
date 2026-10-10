@@ -43,8 +43,26 @@
     <br><br>
 
     <label>
+        Price:
+        <input type="number"
+               step="0.01"
+               th:field="*{price}"
+               required>
+    </label>
+
+    <br><br>
+
+    <label>
         Ingredients:
         <textarea th:field="*{ingredients}"></textarea>
+    </label>
+
+    <br><br>
+
+    <label>
+        Image URL:
+        <input type="text"
+               th:field="*{imageUrl}">
     </label>
 
     <br><br>

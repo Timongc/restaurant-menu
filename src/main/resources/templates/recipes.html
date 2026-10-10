@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Restaurant Menu</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
@@ -45,30 +47,33 @@
 
 <h1>Restaurant Menu</h1>
 
-<div th:each="recipe : ${recipes}">
+<div class="recipe-grid">
+    <div class="recipe-card" th:each="recipe : ${recipes}">
 
-    <h2>
-        <a th:href="@{/recipes/{id}(id=${recipe.id})}"
-            th:text="${recipe.name}">
-            Recipe name
-        </a>
-    </h2>
+        <h2>
+            <a th:href="@{/recipes/{id}(id=${recipe.id})}"
+                th:text="${recipe.name}">
+                Recipe name
+            </a>
+        </h2>
 
-    <p th:text="${recipe.description}">
-        Recipe description
-    </p>
+        <p th:text="${recipe.description}">
+            Recipe description
+        </p>
 
-    <p>
-        Price:
-        <span th:text="${recipe.price}">0</span>
-    </p>
+        <p>
+            Price:
+            <span th:text="${recipe.price}">0</span>
+        </p>
 
-    <p>
-        Ingredients:
-        <span th:text="${recipe.ingredients}">Ingredients</span>
-    </p>
+        <p>
+            Ingredients:
+            <span th:text="${recipe.ingredients}">Ingredients</span>
+        </p>
 
-    <hr>
+        <hr>
+
+    </div>
 
 </div>
 

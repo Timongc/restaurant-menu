@@ -1,6 +1,7 @@
 package com.example.restaurant.service;
 
 import com.example.restaurant.entity.Recipe;
+import com.example.restaurant.exception.RecipeNotFoundException;
 import com.example.restaurant.repository.FavoriteRepository;
 import com.example.restaurant.repository.RecipeRepository;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class RecipeService {
 
     public Recipe getRecipeById(Long id) {
         return recipeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Recipe not found"));
+                .orElseThrow(() -> new RecipeNotFoundException(id));
     }
 
     public Recipe createRecipe(Recipe recipe) {
@@ -47,7 +48,7 @@ public class RecipeService {
     @Transactional
     public void deleteRecipe(Long id) {
         Recipe recipe = recipeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Recipe not found"));
+                .orElseThrow(() -> new RecipeNotFoundException(id));
 
         favoriteRepository.deleteByRecipe(recipe);
 

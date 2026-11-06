@@ -77,5 +77,24 @@
 
 </div>
 
+<p>Current page number: <span th:text="${currentPage + 1}">currentPage</span></p>
+
+<div class="page-buttons">
+
+    <div class="page-button"
+         th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+
+        <form th:action="@{/}" method="get">
+            <input type="hidden" name="page" th:value="${i + 1}">
+            <button type="submit"
+                    th:classappend="${i == currentPage} ? 'active' : ''">
+                <span th:text="${i + 1}"> n </span>
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
 </body>
 </html>

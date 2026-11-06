@@ -2,6 +2,7 @@ package com.example.restaurant.controller;
 
 import com.example.restaurant.entity.Recipe;
 import com.example.restaurant.service.RecipeService;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,5 +46,14 @@ public class RecipeController {
     @DeleteMapping("/{id}")
     public void deleteRecipe(@PathVariable Long id) {
         recipeService.deleteRecipe(id);
+    }
+
+    @GetMapping("/pages/{page}")
+    public Page<Recipe> getRecipesPage(
+            @PathVariable int page,
+            @RequestParam(defaultValue = "2") int size) {
+        page -= 1;
+
+        return recipeService.getRecipesPage(page, size);
     }
 }

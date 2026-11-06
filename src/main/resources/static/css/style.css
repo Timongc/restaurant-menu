@@ -9,3 +9,14 @@
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+
+.page-buttons {
+    display: table-row;
+    grid-column: auto;
+    gap: 10px;
+}
+
+.page-button {
+    padding: 1px;
+    border: 1px solid #ccc;
+}
